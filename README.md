@@ -1,6 +1,7 @@
 # Eric_Gpops
 
 short descriptions and comments:
+
 **all of the auxdata.Rp objects are in the cgpopsAuxDec.hpp file and can be called using the cgpopsAuxExt.hpp files** 
 auxdata.Rx1 = 2.75;  % Radar x-Position (center)
 auxdata.Ry1 = 3.5;  % Radar y-Position (center)
