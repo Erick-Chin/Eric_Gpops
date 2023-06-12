@@ -3,6 +3,7 @@
 short descriptions and comments:
 
 **all of the auxdata.Rp objects are in the cgpopsAuxDec.hpp file and can be called using the cgpopsAuxExt.hpp files** 
+
 auxdata.Rx1 = 2.75;  % Radar x-Position (center)
 auxdata.Ry1 = 3.5;  % Radar y-Position (center)
 auxdata.Ra1 = 1;  % Radar semi-major axis  0.5
@@ -27,6 +28,7 @@ auxdata.Rp3 = 2;  % Corners
 
 
 **all of the variable creation and setup for problem bounds are found in the cgpops_main.cpp file** 
+
 t0 = 0; 
 tfmin = 0; tfmax = 25; %thetaf = deg2rad(0); 
 x0 = 1; y0 = 0.5; theta0 = pi/2;
