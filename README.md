@@ -23,6 +23,8 @@ auxdata.Rb3 = 1;  % Radar semi-minor axis
 auxdata.Rr3 = 1;  % Radar radius
 auxdata.Rp3 = 2;  % Corners
 
+
+
 **all of the variable creation and setup for problem bounds are found in the cgpops_main.cpp file** 
 t0 = 0; 
 tfmin = 0; tfmax = 25; %thetaf = deg2rad(0); 
