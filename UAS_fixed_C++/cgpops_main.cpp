@@ -168,6 +168,7 @@ void cgpops_go(doubleMat& cgpopsResults)
     xfg1[4] = thetaf;
     xfg1[5] = omegaf;
     //u0g1[0] #ifndef __CGPOPS_AUX_DEC_HPP__
+    //setGlobularData();    //Set any global tabular data used in this problem (page 23 of the reference guide)
 #define __CGPOPS_AUX_DEC_HPP__= 0;
     ufg1[3] = 0;
     t0g1    = t0;
