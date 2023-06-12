@@ -9,7 +9,7 @@
 #define __CGPOPS_AUX_EXT_HPP__
 
 
-// Free Flying Robot problem parameters
+//The three different objects on the stage
 extern double Rx1;
 extern double Ry1;
 extern double Ra1;

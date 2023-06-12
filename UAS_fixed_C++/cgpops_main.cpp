@@ -71,6 +71,12 @@ void cgpops_go(/*doubleMat& cgpopsResults*/)
 
     // Define Bounds of Optimal Control Problem
     // Phase 1 bounds
+    /*
+        nxG is the number of state components in phase 1
+        nuG is the number of control components in phase 1 
+        ncG is the number of integral constraints in phase 1
+        nppG is the number of phase parameters in phase 1
+    */
     int phase1 = 0;
     double x0l1[nxG[phase1]],   x0u1[nxG[phase1]];
     double xfl1[nxG[phase1]],   xfu1[nxG[phase1]];
@@ -80,6 +86,7 @@ void cgpops_go(/*doubleMat& cgpopsResults*/)
     double cl1[ncG[phase1]],    cu1[ncG[phase1]];
     double t0l1,    t0u1;
     double tfl1,    tfu1;
+    //instantiating all the different phase variables and below is setting the differnt values
     x0l1[0] = x0;
     x0l1[1] = y0;
     x0l1[2] = vx0;
