@@ -15,7 +15,7 @@
 //#include "cgpops_main.hpp"
 #include <math.h>
 
-void cgpops_go(doubleMat& cgpopsResults)
+void cgpops_go(/*doubleMat& cgpopsResults*/)
 {
     // Define Global Variables used to determine problem size
     PG      = 1;    // Number of phases in problem
@@ -25,10 +25,7 @@ void cgpops_go(doubleMat& cgpopsResults)
 
     // Allocate memory for each phase
     initGlobalVars();
-
-
-
-    Rx1 = 
+ 
     // Define number of components for each parameter in problem phases
     // Phase 1 parameters
     nxG[0]  = 6;    // Number of state components in phase 1

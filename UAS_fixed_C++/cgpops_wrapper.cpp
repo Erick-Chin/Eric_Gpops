@@ -30,23 +30,23 @@ int main(void)
                             // (default=4)
     
     // Mesh refinement settings
-    meshRefineTypeG = 1;    // Select mesh refinement technique to be used (default=1)
-    minColPtsG      = 3;    // Mininum number of collocation points used in an interval
-                            // (default=4)
-    maxColPtsG      = 10;   // Maximum number of collocation points used in an interval
-                            // (default=10)
-    maxMeshIterG    = 3;   // Maximum number of mesh iterations (default=20)
-    meshTolG        = 1e-7; // Mesh tolerance (default=1e-7)
+    meshRefineTypeG = 1;    // Select mesh refinement technique to be used (default=1)  (This is a defult)
+    minColPtsG      = 4;    // Mininum number of collocation points used in an interval (mesh.colpointsmin = 4)
+
+    maxColPtsG      = 10;   // Maximum number of collocation points used in an interval (mesh.colpointesmax = 10)
+
+    maxMeshIterG    = 45;   // Maximum number of mesh iterations    (mesh.maxiterations = 45)
+    meshTolG        = 1e-6; // Mesh tolerance (default=1e-7)        (mesh.tolerance = le-6)
     
     // Output save settings
     saveIPOPTFlagG       = 1;   // Save IPOPT solution (default=1)
-    saveMeshRefineFlagG  = 1;   // Save mesh refinement history (default=0)
-    saveHamiltonianG     = 1;   // Save Hamiltonian values (default=0)
-    saveLTIHG            = 1;   // Save linear terms in Hamiltonian values (default=0)
+    saveMeshRefineFlagG  = 0;   // Save mesh refinement history (default=0)
+    saveHamiltonianG     = 0;   // Save Hamiltonian values (default=0)
+    saveLTIHG            = 0;   // Save linear terms in Hamiltonian values (default=0)
     
     // IPOPT settings
     runIPOPTFlagG   = 1;    // Run IPOPT (default=1)
-    NLPtolG         = 1e-9; // NLP Solver tolerance (default=1e-7)
+    NLPtolG         = 1e-7; // NLP Solver tolerance (default=1e-7)
     NLPmaxiterG     = 3000; // Maximum number of iterations allowed for NLP solver
     useLTIHDDG = 1;
 //    varMeshPtsFracG = 0.05;
