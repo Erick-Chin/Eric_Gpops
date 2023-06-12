@@ -153,11 +153,11 @@ void cgpops_go(/*doubleMat& cgpopsResults*/)
     //ql1[0]  = 0;      //integral lower 
     //qu1[0]  = 1000;   //integral upper
 
-    // Set parameterized constructor for NLP Phase Bounds Class
+    // Set parameterized constructor for NLP Phase Bounds Class (I need to work on this and read the documentation)
     setNLPPBG(phase1,x0l1,x0u1,xfl1,xfu1,xl1,xu1,ul1,uu1,ql1,qu1,cl1,cu1,t0l1,t0u1,tfl1,
               tfu1);
 
-    // Whole problem bounds
+    // Whole problem bounds (Need to read documentation dont understand)
     double sl[nsG], su[nsG];
     double bl[nbG], bu[nbG];
 
@@ -166,16 +166,16 @@ void cgpops_go(/*doubleMat& cgpopsResults*/)
 
     // Provide initial guess for NLP Solver
     // Phase 1 guess
-    double x0g1[nxG[phase1]],   xfg1[nxG[phase1]];
-    double u0g1[nuG[phase1]],   ufg1[nuG[phase1]];
-    double qg1[nqG[phase1]];
+    double t0g1[nppG[phase1]], tfg1[nppG[phase1]]; //this probably isnt right  (nppG)
+    double x0g1[nxG[phase1]],   xfg1[nxG[phase1]]; //initial guess of inital state, initial guess of final state (Need to add the theta0*ones(n,1) variable)
+    double u0g1[nuG[phase1]],   ufg1[nuG[phase1]]; //initial guess og initial control, initial guess of final control
+    double qg1[nqG[phase1]];        //initial guess of integral vector
     double t0g1,    tfg1;
     x0g1[0] = x0;
-    x0g1[1] = y0;
-    x0g1[2] = vx0;
-    x0g1[3] = vy0;
-    x0g1[4] = theta0;
-    x0g1[5] = omega0;
+    x0g1[1] = 2.75;
+    x0g1[2] = 6.75;
+    x0g1[3] = xf;
+
     xfg1[0] = xf;
     xfg1[1] = yf;
     xfg1[2] = vxf;

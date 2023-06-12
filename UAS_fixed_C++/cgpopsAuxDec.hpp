@@ -8,8 +8,6 @@
 #ifndef __CGPOPS_AUX_DEC_HPP__
 #define __CGPOPS_AUX_DEC_HPP__
 
-
-// Free Flying Robot problem parameters
     double Rx1 = 5;        //Radar x-Position (center)
     double Ry1 = 5;         //Radar y-Position (center)
     double Ra1 = 1;           //Radar semi-major axis
