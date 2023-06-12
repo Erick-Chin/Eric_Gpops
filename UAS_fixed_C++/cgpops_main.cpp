@@ -87,60 +87,71 @@ void cgpops_go(/*doubleMat& cgpopsResults*/)
     double t0l1,    t0u1;
     double tfl1,    tfu1;
     //instantiating all the different phase variables and below is setting the differnt values
-    x0l1[0] = x0;
-    x0l1[1] = y0;
-    x0l1[2] = vx0;
-    x0l1[3] = vy0;
-    x0l1[4] = theta0;
-    x0l1[5] = omega0;
-    x0u1[0] = x0;
-    x0u1[1] = y0;
-    x0u1[2] = vx0;
-    x0u1[3] = vy0;
-    x0u1[4] = theta0;
-    x0u1[5] = omega0;
-    xfl1[0] = xf;
-    xfl1[1] = yf;
-    xfl1[2] = vxf;
-    xfl1[3] = vyf;
-    xfl1[4] = thetaf;
-    xfl1[5] = omegaf;
-    xfu1[0] = xf;
-    xfu1[1] = yf;
-    xfu1[2] = vxf;
-    xfu1[3] = vyf;
-    xfu1[4] = thetaf;
-    xfu1[5] = omegaf;
-    xl1[0]  = xmin;
-    xl1[1]  = ymin;
-    xl1[2]  = vxmin;
-    xl1[3]  = vymin;
-    xl1[4]  = thetamin;
-    xl1[5]  = omegamin;
-    xu1[0]  = xmax;
-    xu1[1]  = ymax;
-    xu1[2]  = vxmax;
-    xu1[3]  = vymax;
-    xu1[4]  = thetamax;
-    xu1[5]  = omegamax;
-    ul1[0]  = u1min;
-    ul1[1]  = u2min;
-    ul1[2]  = u3min;
-    ul1[3]  = u4min;
-    uu1[0]  = u1max;
-    uu1[1]  = u2max;
-    uu1[2]  = u3max;
-    uu1[3]  = u4max;
-    t0l1    = t0;
-    t0u1    = t0;
-    tfl1    = tf;
-    tfu1    = tf;
-    ql1[0]  = q1min;
-    qu1[0]  = q1max;
-    cl1[0]  = c1min;
-    cl1[1]  = c2min;
-    cu1[0]  = c1max;
-    cu1[1]  = c2max;
+    /*
+    lhs0 - value for endpoint function to be computed 
+    x0 - pointer to array of initial state values in each phase
+    xf - pointer to array of final state values in each phase
+    q - pointer to array of integral values in each phase
+    t0 - pointer to array of initial time value in each phase
+    tf - pointer to array of final time value in each phase
+    s - array of static paratmeter values in problem
+    e - array of endpoint parameter values in problem
+    lhs - value for phase function to be computed
+    x - array of state values at point in phase
+    u - array of control values at point in phase
+    t - value of time at point in phase
+    s - array of static parameter values in problem
+    p - array of phase point parameter values at point in phase 
+    */ 
+    
+    
+    t0l1    = t0;   //initial time lower bound 
+    t0u1    = t0;   //initial time upper bound 
+
+
+    tfl1    = tfmin;   //final time lower bound
+    tfu1    = tfmax;   //final time upper bound
+
+    x0l1[0] = x0       //initial state lower x0
+    x0l1[1] = y0;      //initial state lower y0
+    x0l1[2] = theta0;  //intial state lower theta0
+
+
+    x0u1[0] = x0;      //initial state upper x0
+    x0u1[1] = 0;       //initial state upper 0
+
+    xl1[0]  = xmin;    //state lower xmin
+    xl1[1]  = ymin;    //state lower ymin
+    xl1[4]  = thetamin; //state lower thetamin
+
+    xu1[0]  = xmax;    //state upper xmax
+    xu1[1]  = ymax;    //state upper ymax
+    xu1[4]  = thetamax; //state upper theatamax
+
+    xfl1[0] = xf;      //final state lower xf
+    xfl1[1] = yf;      //final state lower yf
+    xfl1[3] = thetamin; //final state lower thetamin
+
+    xfu1[0] = xf;       //final state upper xf
+    xfu1[1] = yf;       //final state upper yf
+    xfu1[2] = thetamax;  //final state upper thetamax
+
+    ul1[0]  = u1min;    //control lower ul1min
+    ul1[1]  = u2min;    //control lower u2min
+    
+    uu1[0]  = u1max;    //control upper ul1max
+    uu1[1]  = u2max;    //control upper ul2max
+   
+    cl1[0]  = 0;    //path lower first index
+    cl1[1]  = 0;    //path lower second index
+    cl1[2]  = 0;    //path lower third index
+
+    cu1[0]  = 1000; //path upper first index
+    cu1[1]  = 1000; //path upper second index
+    cu1[2]  = 1000; //path upper third index
+
+    //ql1[0]  = 0;      //integral lower 
+    //qu1[0]  = 1000;   //integral upper
 
     // Set parameterized constructor for NLP Phase Bounds Class
     setNLPPBG(phase1,x0l1,x0u1,xfl1,xfu1,xl1,xu1,ul1,uu1,ql1,qu1,cl1,cu1,t0l1,t0u1,tfl1,
