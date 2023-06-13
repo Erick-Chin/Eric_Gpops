@@ -3,7 +3,7 @@
 // cgpops_gov.cpp
 // CGPOPS Tool Box
 // Define governing equations of continouos time optimal control problem here
-// Free-flying robot problem
+
 
 
 #include "cgpops_gov.hpp"

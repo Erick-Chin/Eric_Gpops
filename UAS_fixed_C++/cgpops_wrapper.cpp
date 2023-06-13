@@ -16,17 +16,18 @@ int main(void)
     
     int numTestRuns = 1;
     int numDS = 1;
-    int DSSelect = 0;
+    int sparseCD = 0;
     doubleMatMat cgpopsResultsMatMat(numTestRuns*numDS);
     doubleMat cgpopsResults;
     
     // Derivative supplier settings
     derivativeSupplierG = 0;    // Derivative supplier (default=0)
-    scaledG             = 1;    // Scaling flag (default 1=on)
+    scaledG             = 1;    // Scaling flag (default 1=on) (selects if automatic scaling is used for nlp)(setup.scales.method)
     
     // Mesh initialization settings
+    int ones[10]   = {[0 ... 9] = 1}; //ones function creates a size 10 array filled with 1s
     numintervalsG   = 10;   // Initial number of mesh intervals per phase (default=10)
-    initcolptsG     = 5;    // Initial number of collocation points per interval
+    initcolptsG     = 4*ones;    // Initial number of collocation points per interval
                             // (default=4)
     
     // Mesh refinement settings
@@ -46,7 +47,7 @@ int main(void)
     
     // IPOPT settings
     runIPOPTFlagG   = 1;    // Run IPOPT (default=1)
-    NLPtolG         = 1e-7; // NLP Solver tolerance (default=1e-7)
+    NLPtolG         = 1e-5; // NLP Solver tolerance (default=1e-7)
     NLPmaxiterG     = 3000; // Maximum number of iterations allowed for NLP solver
     useLTIHDDG = 1;
 //    varMeshPtsFracG = 0.05;
@@ -57,8 +58,8 @@ int main(void)
     
     for (int ds=0; ds<numDS; ds++)
     {
-        derivativeSupplierG = DSSelect;
-        if (derivativeSupplierG==DSSelect)
+        derivativeSupplierG = sparseCD;
+        if (derivativeSupplierG==sparseCD)
 //        derivativeSupplierG = ds;
 //        if (derivativeSupplierG==ds)
         {
