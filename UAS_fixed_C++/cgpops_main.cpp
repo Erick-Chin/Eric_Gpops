@@ -166,9 +166,16 @@ void cgpops_go(/*doubleMat& cgpopsResults*/)
 
     // Provide initial guess for NLP Solver
     // Phase 1 guess
-    double n = 4;
+    
+    int n = 4;
     double tfmax2 = 20;
-
+    double ones[n][1] = {0};
+    
+    for(int i = 0; i<n; i++){//made an array 4x1 filled with 1s
+        for(int j = 0; j=1; j++){
+            ones[i][j] = {1};
+        }
+    } 
     double t0g1[nppG[phase1]]; //this probably isnt right  (nppG)
     double x0g1[nxG[phase1]],   xfg1[nxG[phase1]]; //initial guess of inital state, initial guess of final state (Need to add the theta0*ones(n,1) variable)
     double u0g1[nuG[phase1]],   ufg1[nuG[phase1]]; //initial guess of initial control, initial guess of final control
