@@ -63,7 +63,7 @@ void cgpops_go(/*doubleMat& cgpopsResults*/)
     double xmin = 0,      xmax = 10;      // minimum and maximum x state component
     double ymin = 0,      ymax = 10;      // minimum and maximum y state component
     double thetamin = -M_PI,thetamax = M_PI;// minimum and maximum x state component
-    double ulmin = 1,   ulmax = 1;   // minimum and maximum y state component
+    double u1min = 1,   u1max = 1;   // minimum and maximum y state component
 
     double u2min = -2,       u2max = 2;   // minimum and maximum u1 control component
 
@@ -112,7 +112,7 @@ void cgpops_go(/*doubleMat& cgpopsResults*/)
     tfl1    = tfmin;   //final time lower bound
     tfu1    = tfmax;   //final time upper bound
 
-    x0l1[0] = x0       //initial state lower x0
+    x0l1[0] = x0;      //initial state lower x0
     x0l1[1] = y0;      //initial state lower y0
     x0l1[2] = theta0;  //intial state lower theta0
 
@@ -166,11 +166,19 @@ void cgpops_go(/*doubleMat& cgpopsResults*/)
 
     // Provide initial guess for NLP Solver
     // Phase 1 guess
-    double t0g1[nppG[phase1]], tfg1[nppG[phase1]]; //this probably isnt right  (nppG)
+    double n = 4;
+    double tfmax2 = 20;
+
+    double t0g1[nppG[phase1]]; //this probably isnt right  (nppG)
     double x0g1[nxG[phase1]],   xfg1[nxG[phase1]]; //initial guess of inital state, initial guess of final state (Need to add the theta0*ones(n,1) variable)
-    double u0g1[nuG[phase1]],   ufg1[nuG[phase1]]; //initial guess og initial control, initial guess of final control
+    double u0g1[nuG[phase1]],   ufg1[nuG[phase1]]; //initial guess of initial control, initial guess of final control
     double qg1[nqG[phase1]];        //initial guess of integral vector
     double t0g1,    tfg1;
+
+    t0g1[0] = t0;
+    t0g1[1] = tfmax2;
+    t0g1[2] = n;
+
     x0g1[0] = x0;
     x0g1[1] = 2.75;
     x0g1[2] = 6.75;
@@ -178,10 +186,7 @@ void cgpops_go(/*doubleMat& cgpopsResults*/)
 
     xfg1[0] = xf;
     xfg1[1] = yf;
-    xfg1[2] = vxf;
-    xfg1[3] = vyf;
-    xfg1[4] = thetaf;
-    xfg1[5] = omegaf;
+
     //u0g1[0] #ifndef __CGPOPS_AUX_DEC_HPP__
     //setGlobularData();    //Set any global tabular data used in this problem (page 23 of the reference guide)
 #define __CGPOPS_AUX_DEC_HPP__= 0;
