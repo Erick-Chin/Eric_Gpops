@@ -63,6 +63,14 @@ bounds.phase.path.upper  = [100000, 100000, 100000];
 % bounds.phase.integral.lower  = 0;
 % bounds.phase.integral.upper  = 1000;
 
+**All of the things regarding mesh refinement and initial mesh setup are found in cgpops_wrapper.cpp**
 
-
-
+%-------------------------------------------------------------------------%
+%----------Provide Mesh Refinement Method and Initial Mesh ---------------%
+%-------------------------------------------------------------------------%
+mesh.method       = 'hp-PattersonRao';
+mesh.tolerance    = 1e-6;
+mesh.maxiterations = 45;
+mesh.colpointsmin = 4;
+mesh.colpointsmax = 10;
+setup.mesh.phase.colpoints = 4*ones(1,10);
